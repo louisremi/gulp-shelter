@@ -1,6 +1,6 @@
 {
   "name": "gulp-shelter",
-  "version": "0.1.0",
+  "version": "0.9.0",
   "description": "Cozy place for your shell tasks",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/louisremi/gulp-shelter",
   "dependencies": {
-    "gulp": "^3.8.11",
-    "gulp-run": "^1.6.6"
+    "lodash": "^3.6.0"
   }
 }
