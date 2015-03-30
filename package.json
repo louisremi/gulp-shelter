@@ -1,6 +1,6 @@
 {
   "name": "gulp-shelter",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Cozy place for your shell tasks",
   "main": "index.js",
   "scripts": {
