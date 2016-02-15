@@ -1,5 +1,6 @@
 {
-	"env": {
+    "extends": "eslint:recommended",
+    "env": {
 		"browser": true,
 		"node": true,
 		"amd": true,
@@ -21,7 +22,6 @@
 		"objectLiteralShorthandProperties": true
 	},
 	"rules": {
-		"quotes": "single",
-		"no-underscore-dangle": false
+		"quotes": [ 2, "single" ]
 	}
 }
