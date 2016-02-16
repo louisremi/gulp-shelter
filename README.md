@@ -7,15 +7,12 @@ Gulp-shelter brings the best of both worlds and makes everyone in the team happy
 
 ## Installing
 
-Gulp is the only hard dependency. But gulp-shelter will make your build scripts much simpler when written with template strings (**only compatible with Gulp v3.9.0+**).
+This is the recommended installation for a fresh **new project** with **[Node v4+](https://nodejs.org/)** installed locally.
+See [legacy config](#legacy-config) below if you're in a different situation.
 
-`npm install --save-dev gulp-shelter gulp@"^3.9.0" babel-core babel-register babel-preset-es2015 gulp-cli`
+`npm install --save-dev gulp-shelter gulpjs/gulp#4.0`
 
-Setup Babel to **use es2015**, if you haven't already:
-
-`echo '{ "presets": ["es2015"] }' > .babelrc`
-
-And finally name or rename your gulpfile to **`gulpfile.babel.js`**.
+(Having Gulp v3 installed globally should not be a problem.)
 
 ## Using
 
@@ -48,15 +45,15 @@ const surge = domain ? `surge --project ./dist --domain ${domain}` : ':'; // ':'
 // tasks definitions
 shelter({
 	build: {
-		dsc: 'generate standalone ${project} lib and external source-map',
+		dsc: `generate ${project} lib and external source-map`,
 		cmd: `${browserify} | ${exorcist}`
 	},
 	serve: {
-		dsc: 'Open index.html in the browser and live-reload on changes',
+		dsc: 'Open index.html and live-reload on changes',
 		cmd: `${watchify} & ${browsersync}`
 	},
 	deploy: {
-		dsc: 'Task meant to be run by Travis to automatically deploy on Surge',
+		dsc: 'Run by Travis to automatically deploy on Surge',
 		cmd: `${browserify} | ${exorcist} && ${surge}`
 	}
 });
@@ -72,12 +69,35 @@ You can get the same benefit by adding the following lines to your `package.json
 ```json
 "scripts": {
 	"gulp": "gulp",
-    "help": "gulp --tasks",
-	…
+    "help": "gulp --tasks"
 },
 ```
 
 Now tasks can be discovered by running **`npm run help`**, and individual tasks can be run with **`npm run gulp -- <task name>`**.
+
+## Legacy config
+
+### Older versions of Node
+
+Versions of Node prior to v4 did not support template strings out of the box.
+Thankfully, Gulp v3.9+ is able to read special gulpfiles that contain ES6 syntax.
+
+Install the following additional dependencies:
+
+`npm install --save-dev babel-core babel-register babel-preset-es2015`
+
+Setup Babel to use es2015, if you haven't already:
+
+`echo '{ "presets": ["es2015"] }' > .babelrc`
+
+And finally name or rename your gulpfile to **`gulpfile.babel.js`**.
+
+### Older versions of Gulp
+
+If you plan on using the `npm run help` task described above with Gulp 3.X,
+you will need a local version of gulp-cli for task descriptions to be displayed in the console.
+
+`npm install --save-dev gulp-cli`
 
 ## License
 
