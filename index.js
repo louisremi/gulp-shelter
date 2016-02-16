@@ -12,8 +12,14 @@ function taskBuilder( name, _task ) {
 	);
 
 	if ( task.cmd ) {
-		// prepend backslash to newlines
-		task.cmd = task.cmd.replace(/\n/g, ' \\\n');
+		task.cmd = (
+			task.cmd
+				.trim()
+				// prepend backslash to newlines
+				.replace(/\n/g, ' \\\n')
+				// replace tabs
+				.replace(/\t/g, '    ')
+		);
 
 		task.fn = function(done) {
 			var opts = _.defaults( task.opts || {}, {
@@ -62,10 +68,10 @@ function taskBuilder( name, _task ) {
 
 	if ( task.fn ) {
 		gulp.task( name, task.fn );
-		if ( 'dsc' in _task ) {
+		if ( 'dsc' in task ) {
 			task.fn.description = _task.dsc;
 		}
-		if ( 'flg' in _task ) {
+		if ( 'flg' in task ) {
 			task.fn.flags = _task.flg;
 		}
 	}

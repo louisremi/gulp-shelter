@@ -2,7 +2,6 @@
   "name": "gulp-shelter",
   "version": "1.0.0",
   "description": "A cozy place for your shell scripts",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:louisremi/gulp-shelter.git"
@@ -18,10 +17,19 @@
     "url": "https://github.com/louisremi/gulp-shelter/issues"
   },
   "homepage": "https://github.com/louisremi/gulp-shelter",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test",
+    "help": "gulp --tasks",
+    "test:npm": "gulp echo:npm"
+  },
   "dependencies": {
     "lodash": "^4.3.0"
   },
   "devDependencies": {
-    "eslint": "^2.0.0"
+    "eslint": "^2.1.0",
+    "eslint-plugin-mocha": "^2.0.0",
+    "gulp": "gulpjs/gulp#4.0",
+    "rimraf": "^2.5.2"
   }
 }
