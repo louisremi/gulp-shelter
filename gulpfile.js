@@ -3,7 +3,7 @@ const gulp = require('gulp');
 const shelter = require('./index')(gulp);
 
 const lint = 'eslint *.js';
-const clear = 'rimraf .tmp && mkdir .tmp';
+const clean = 'rimraf .tmp && mkdir .tmp';
 const echoNpm = `
 	echo "hello from npm script"
 		> .tmp/echonpm.txt
@@ -29,7 +29,7 @@ const testGulp = `gulp echo:gulp && ${grepGulp}`;
 shelter({
 	'test': {
 		dsc: 'Test gulp-shelter',
-		cmd: `${lint} && ${clear} && ${testNpm} && ${testGulp}`
+		cmd: `${lint} && ${clean} && ${testNpm} && ${testGulp}`
 	},
 	'echo:npm': echoNpm,
 	'echo:gulp': echoGulp
