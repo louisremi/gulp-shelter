@@ -3,7 +3,7 @@ A cozy place for your shell tasks
 
 ## Npm Scripts as a build tool, or Gulp tasks?
 
-Gulp-shelter brings the best of both worlds and makes everyone in the team happy.
+Gulp-shelter brings the best of both worlds and makes everyone in the team happy. Read the [blog post](https://medium.com/@Louis_Remi/npm-scripts-vs-gulp-round-2-feat-gulp-shelter-c003db6a148b).
 
 ## Installing
 

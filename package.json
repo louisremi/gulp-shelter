@@ -9,6 +9,7 @@
   "keywords": [
     "gulp",
     "gulp-run",
+    "gulp-shell",
     "shell"
   ],
   "author": "@Louis_Remi",
