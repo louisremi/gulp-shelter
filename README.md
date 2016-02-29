@@ -32,13 +32,13 @@ const domain = (
 );
 
 // commands and fragments
-const browserifyOpts = `
+const browserifyFlags = `
 	--standalone ${project}
 	--transform [ babelify --presets [ es2015 react ] ]
 	--debug`; // --debug enables source-map
-const browserify = `browserify ${main} ${browserifyOpts}`;
+const browserify = `browserify ${main} ${browserifyFlags}`;
 const exorcist = `exorcist ${dest}.map > ${dest}`;
-const watchify = `watchify ${main} ${browserifyOpts} -o ${dest}`;
+const watchify = `watchify ${main} ${browserifyFlags} -o ${dest}`;
 const browsersync = `browser-sync start --server --files "${dest}, index.html"`;
 const surge = domain ? `surge --project ./dist --domain ${domain}` : ':'; // ':' is noop in bash
 
